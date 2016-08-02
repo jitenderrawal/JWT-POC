@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="296c9d96-8e15-430d-9fb4-e708dda0080e" name="POC" url="http://www.poc.lawyers.com">
+        <fileTransfer port="0" mountedRoot="J:\POC\public" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
