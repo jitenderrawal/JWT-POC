@@ -31,7 +31,7 @@ class AuthenticateController extends Controller
     {
         $payload = JWTAuth::parseToken()->getPayload();
 
-        return "Authenticated Payload" . json_encode($payload);
+        return "Authentication Successfully.  Payload was " . $payload;
     }
 
     /**
