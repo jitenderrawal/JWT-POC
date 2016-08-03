@@ -16,10 +16,10 @@ class UserRoles
         
         $user = User::where('email','=',$email)->get()->first();
   
-        return array('name' => $user->name, 'email' => $user->email, 'roles' => UserRoles::imp($user->roles()->select('roles')->get()));
+        return array('name' => $user->name, 'email' => $user->email, 'roles' => UserRoles::flattenRoles($user->roles()->select('roles')->get()));
     }
 
-    public static function imp($arr)
+    public static function flattenRoles($arr)
     {
         $roles = array();
         foreach ($arr as $ar) {

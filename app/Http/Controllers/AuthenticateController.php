@@ -22,7 +22,8 @@ class AuthenticateController extends Controller
     }
 
     /**
-     * This is protected controller which will 
+     * This is protected controller which will be accessible only with a valid jwt token. If the token is
+     * valid it will parse the token and return the custom payload with all the claims and roles
      *
      * @return Response
      */
@@ -30,12 +31,11 @@ class AuthenticateController extends Controller
     {
         $payload = JWTAuth::parseToken()->getPayload();
 
-
         return "Authenticated Payload" . json_encode($payload);
     }
 
     /**
-     * Return a JWT
+     * Authenticate inclReturn a JWT
      *
      * @return Response
      */
@@ -44,7 +44,7 @@ class AuthenticateController extends Controller
         $credentials = $request->only('email', 'password');
 
         try {
-            // verify the credentials and create a token for the user
+            // verify the credentials against the database and create jwt token for the user
             if (! $token = JWTAuth::attempt($credentials,UserRoles::roles($credentials['email']))) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }

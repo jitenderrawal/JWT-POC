@@ -1,9 +1,0 @@
- Usage: ./build.sh {buildDir} {generateHeartBeat} {vHost} {runGassetic} [runRsync]
- Where ...
- buildDir is {buildTag}+{Environment}+{buildTimeStamp}
- generateHeartBeat is either true or false
- vHost is (dev|qa|stg|prod)([1-9]|10)
- runGassetic is true | false]
- [runRsync is true | false] ... runRsync is an optional parameter used for testing
-
- ./build.sh 2015.6.3_Dev_201511251200 true dev1 [false]
